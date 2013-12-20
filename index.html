@@ -40,6 +40,27 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
+	
+			<div id="liste2"> </div> <!-- Rempli après le JS -->
+<script type="text/javascript">
+    var target_elt = $('#liste2');
+    var url = "https://api.github.com/users/floue/starred";
+    var request = $.get(url, {}, function() {}, 'jsonp');
+    request.done(function(data) { // une fois que la fonction se lance une fois requête effectué
+        var ul = $('<ul/>').addClass('star-liste').appendTo(target_elt);
+        $.each(data, function(i, item) {
+            var li = $('<li/>').appendTo(ul); // li imbriqué dans le ul qui est imbriqué dans le div
+            $("<a/>").attr("href", item.html_url)
+                .attr("title", "un projet que j’affectionne")
+                .html(item.name)
+                .appendTo(target_elt).appendTo(li);
+            if ( i === 10 ) {  // max items
+                return false;
+            }
+        });
+    });
+	
+</script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
