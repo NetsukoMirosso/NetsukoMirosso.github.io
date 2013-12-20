@@ -44,7 +44,7 @@
 			<div id="liste2"> </div> <!-- Rempli après le JS -->
 <script type="text/javascript">
     var target_elt = $('#liste2');
-    var url = "https://api.github.com/users/floue/starred";
+    var url = "https://api.github.com/users/NetsukoMirosso/starred";
     var request = $.get(url, {}, function() {}, 'jsonp');
     request.done(function(data) { // une fois que la fonction se lance une fois requête effectué
         var ul = $('<ul/>').addClass('star-liste').appendTo(target_elt);
